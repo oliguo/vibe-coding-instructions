@@ -4,20 +4,6 @@
 **Last Updated**: 2025-07-12  
 **Compatible With**: Cursor, Windsurf, VS Code + AI Extensions
 
-## Ove### 8. Maintenance Procedures
-
-#### ## Implementation Checklist (AI-Enhanced)
-
-Before implementing these instructions, ensure:
-- [ ] **Directory structure created** (`doc/`, `app/`, `ideas/` with subdirs)
-- [ ] **Initial knowledge.md exists** with AI coding guidelines integrated
-- [ ] **Master tracking files initialized** (`todo.md`, `step_plan.md`)
-- [ ] **AI IDE rules configured** (`.cursor/rules/` or `rules.md`)
-- [ ] **File naming conventions understood** (YYYYMMDD_HHMMSS format)
-- [ ] **Maintenance schedule established** (daily 5min, weekly 15min)
-- [ ] **MCP Context7 integration tested** ("Use Context7" command)
-- [ ] **AI assistant prompts prepared** (copy-paste snippets ready)
-
 ## AI-Optimized Examplestenance (≤ 5 minutes)
 - **Task Status Updates**: Modify progress in tracking files
 - **Knowledge Base Review**: Update `knowledge.md` with new insights
