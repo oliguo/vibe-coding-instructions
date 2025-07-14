@@ -36,6 +36,185 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 
 ---
 
+## 🚀 New Requirements & AI Startup Workflow
+
+### **When Adding New Requirements (PRD.md or Product Documents)**
+
+When you add requirements documents (PRD.md, technical specs, etc.) to the [`@/ideas/`](ideas) folder, follow this systematic AI-assisted workflow:
+
+#### **Phase 1: Requirements Analysis & Knowledge Base Setup**
+
+**Step 1: Analyze Requirements**
+```bash
+# AI Prompt for Requirements Analysis
+/agent analyze requirements from @/ideas/ folder
+Apply AI coding standards from @/ai-ide-instructions.md
+Focus on F-LEN (≤25 LOC), F-PARAM (≤3 params), single responsibility
+Extract UI/UX requirements, technical feasibility, maintainability considerations
+Document findings in @/doc/knowledge.md following ≤300 LOC sections
+```
+
+**Step 2: Update Knowledge Base with MCP Context7**
+```bash
+# Command to refresh AI context
+Use Context7
+
+# Follow-up AI Prompt
+/agent update @/doc/knowledge.md with MCP Context7 insights
+Consolidate requirements analysis with:
+- Best UI/UX practices for AI readability
+- Long-term maintainability (≤25 LOC functions)
+- Code readability (descriptive names, clear structure)
+- Technical feasibility (AI IDE compatibility)
+```
+
+#### **Phase 2: Project Structure & Security Setup**
+
+**Step 3: Security Validation (CRITICAL FIRST)**
+```bash
+# AI Security Audit Prompt
+/agent validate project security setup
+Confirm .gitignore, .dockerignore, .env.example are comprehensive
+Audit for any sensitive data in repository
+Create language-specific ignore patterns if needed
+Validate no API keys, passwords, or secrets in code
+```
+
+**Step 4: Map Requirements to TDD Tests**
+```bash
+# AI Test Planning Prompt
+/agent analyze @/doc/plan.md 20-test roadmap
+Map requirements from @/ideas/ to specific tests
+Prioritize tests based on:
+- Core functionality importance
+- Risk assessment
+- Dependencies between features
+Update plan.md with requirement-specific test scenarios
+```
+
+#### **Phase 3: Development Cycle Kickoff**
+
+**Step 5: Start First TDD Cycle**
+```bash
+# Command to begin development
+go
+
+# AI Implementation Prompt
+/agent implement failing test for [first behavior from plan.md]
+Follow TDD Red phase:
+- Test name: shouldDoSomething pattern (≤25 LOC)
+- Single behavior validation
+- Descriptive assertions
+- No implementation code yet
+```
+
+**Step 6: Minimal Implementation (Green Phase)**
+```bash
+# AI Green Phase Prompt
+/agent write minimal code to pass current failing test
+Follow F-LEN (≤25 LOC), F-PARAM (≤3 params), F-RESP (single responsibility)
+No over-engineering, just enough to make test pass
+Maintain AI readability patterns from @/ai-ide-instructions.md
+```
+
+**Step 7: Refactoring (Tidy First)**
+```bash
+# AI Refactoring Prompt
+/agent refactor following Tidy First principles
+Separate structural from behavioral changes:
+1. Structural: extract helpers, rename variables, reorganize imports
+2. Behavioral: new features, logic changes
+Commit each type separately with proper prefixes (structural: / feat:)
+```
+
+#### **Phase 4: Task Management & Documentation**
+
+**Step 8: Create Task Files**
+```bash
+# AI Task Creation Prompt
+/agent create todo task file for [specific feature]
+Use naming: YYYYMMDD_HHMMSS_todo_featurename.md
+Include:
+- Task description (single responsibility)
+- Acceptance criteria (≤10 items, measurable)
+- Dependencies (explicit prerequisites)
+- AI integration points (TODO(ai) markers)
+Update @/doc/todo.md with new task entry
+```
+
+**Step 9: Generate Detailed Step Plans**
+```bash
+# AI Step Planning Prompt
+/agent create step plan for [todo task]
+Use naming: YYYYMMDD_HHMMSS_steps_plan_featurename.md
+Structure with:
+- Overview (≤3 paragraphs)
+- Detailed steps (≤10 per phase, atomic ≤25 LOC implementations)
+- Resource requirements (explicit tools, skills, dependencies)
+- Risk assessment (with AI-assisted mitigation strategies)
+- Validation criteria (automatable where possible)
+Update @/doc/step_plan.md index
+```
+
+### **Sample Complete Workflow: From PRD to Running Code**
+
+```bash
+# 1. Process Requirements
+/agent analyze requirements from @/ideas/PRD.md
+Apply AI coding standards, extract technical requirements
+
+# 2. Update Knowledge Base
+Use Context7
+/agent update @/doc/knowledge.md with consolidated insights
+
+# 3. Security Check
+/agent validate comprehensive security setup
+
+# 4. Plan Tests
+/agent map PRD requirements to @/doc/plan.md TDD tests
+
+# 5. Start Development
+go
+/agent implement failing test for user authentication
+
+# 6. Implement Minimal Code
+/agent write minimal code to pass authentication test
+
+# 7. Refactor & Clean
+/agent refactor following Tidy First principles
+
+# 8. Create Tasks
+/agent create todo task for dashboard component
+
+# 9. Continue Cycle
+# Select next test from plan.md and repeat
+```
+
+### **Daily AI-Assisted Development Routine**
+
+```bash
+# Morning Standup (≤5 minutes)
+/agent daily standup analysis
+Check @/doc/todo.md for today's priorities
+Review @/doc/knowledge.md for overnight updates
+Select next unmarked test from @/doc/plan.md
+Validate AI-optimization compliance (F-LEN, F-PARAM, F-RESP)
+
+# Development Cycle
+/agent implement next TDD cycle
+Follow Red-Green-Refactor methodology
+Maintain ≤25 LOC functions, ≤3 parameters
+Update documentation with learnings
+
+# End of Day
+/agent update progress tracking
+Mark completed tasks in @/doc/todo.md
+Update @/doc/knowledge.md with insights
+Prepare tomorrow's priorities
+```
+
+---
+
 ## 🚀 Project Initialization (New Team Members)
 
 ### **For Project Leaders/CTOs**
@@ -542,7 +721,7 @@ docker build . --dry-run     # Verify dockerignore effectiveness (if using Docke
 
 ---
 
-## 🤖 AI Integration Commands
+## 🤖 AI Integration Commands & Troubleshooting
 
 ### **Context Management**
 ```bash
@@ -565,6 +744,113 @@ docker build . --dry-run     # Verify dockerignore effectiveness (if using Docke
 🔒 "/agent validate no sensitive data in repository"
 🔒 "/agent audit codebase for hardcoded secrets or credentials"
 🔒 "/agent setup environment variable management securely"
+```
+
+### **Role-Specific AI Prompts**
+
+#### **For Designers:**
+```bash
+# Component Design Prompts
+/agent design component following @/doc/designer-guidelines.md
+Create atomic component with:
+- Single responsibility purpose
+- ≤3 props (maps to F-PARAM rule)
+- Testable states (default, hover, error, disabled)
+- AI-readable structure for code generation
+Document component specification with implementation notes
+
+# Design System Prompts
+/agent generate design tokens following atomic design principles
+Map design constants to code variables
+Ensure ≤25 LOC implementation per component
+Create testable interaction specifications
+```
+
+#### **For Testers:**
+```bash
+# Test Strategy Prompts
+/agent create test strategy following @/doc/tester-guidelines.md
+Design tests for:
+- Unit tests (≤25 LOC per test, single behavior)
+- Integration tests (API, workflows, data)
+- Performance tests (≤2 sec unit tests, ≤30 sec integration)
+- Accessibility tests (WCAG 2.1 AA compliance)
+Use TODO(ai) markers for AI-assisted test generation
+
+# Quality Assurance Prompts
+/agent validate quality gates for deployment readiness
+Check coverage metrics (≥85% target)
+Verify all functions ≤25 LOC, ≤3 parameters
+Validate TDD Red-Green-Refactor cycle compliance
+Generate test reports with AI effectiveness metrics
+```
+
+#### **For Programmers:**
+```bash
+# TDD Cycle Prompts
+/agent apply house rules from @/ai-ide-instructions.md
+Focus on F-LEN (≤25 LOC), F-RESP (single responsibility), F-PARAM (≤3 params)
+Split any function >25 LOC into pure helpers
+Keep behavior identical, validate with tests
+
+# Code Review Prompts
+/agent review code for AI optimization compliance
+Check function length, parameter count, cyclomatic complexity
+Suggest refactoring opportunities following Tidy First
+Validate descriptive naming conventions (4-6 words)
+```
+
+### **Emergency AI Troubleshooting Prompts**
+
+#### **When Tests Fail:**
+```bash
+/agent debug failing test following @/doc/programmer-guidelines.md
+1. Verify test exercises correct code path
+2. Check if test is too complex (split if >25 LOC)
+3. Apply single responsibility to implementation
+4. Add failing test that reproduces bug (TDD approach)
+5. Fix with minimal code to pass tests
+```
+
+#### **When AI Suggestions Are Poor:**
+```bash
+/agent improve AI context for better suggestions
+1. Improve TODO(ai) markers with specific context
+2. Break large functions into ≤25 LOC units
+3. Use descriptive 4-6 word naming patterns
+4. Verify compliance with @/ai-ide-instructions.md
+5. Update @/doc/knowledge.md with clearer requirements
+```
+
+#### **When Code Becomes Complex:**
+```bash
+/agent simplify complex code following framework rules
+Apply F-LEN rule: split functions >25 LOC
+Apply F-PARAM rule: use DTOs for >3 parameters
+Apply F-NEST rule: reduce nesting to ≤3 levels
+Apply Tidy First: separate structural from behavioral changes
+Maintain test coverage throughout refactoring
+```
+
+### **Weekly AI-Assisted Reviews**
+```bash
+# Progress Analysis
+/agent weekly progress review
+Analyze @/doc/todo.md completion rates
+Review @/doc/plan.md test implementation progress
+Validate AI-optimization compliance across codebase:
+- Functions ≤25 LOC (F-LEN)
+- Parameters ≤3 (F-PARAM)
+- Files ≤300 LOC (M-SIZE)
+- Cyclomatic complexity ≤10
+Update @/doc/knowledge.md with team learnings
+
+# Quality Metrics Review
+/agent generate quality metrics report
+Track test coverage, code complexity, AI assistance effectiveness
+Identify patterns in bugs, performance issues, technical debt
+Suggest improvements for next iteration
+Plan refactoring priorities using Tidy First principles
 ```
 
 ---
