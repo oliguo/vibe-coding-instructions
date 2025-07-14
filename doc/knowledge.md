@@ -61,6 +61,32 @@ This project implements AI-optimized development practices integrated with Test-
 - Consolidate learning into documentation
 - Plan next iteration improvements
 
+## Security & Project Setup Requirements
+
+### Essential Security Practices (FIRST PRIORITY)
+- **Always create .gitignore before first commit** - Prevent sensitive data leaks
+- **Setup .dockerignore for containerized projects** - Optimize builds and security
+- **Create .env.example templates** - Document required environment variables
+- **Validate no secrets in code** - Use environment variables for all sensitive data
+- **Audit repository regularly** - Ensure no credentials accidentally committed
+
+### Standard Ignore Files Required
+1. **.gitignore**: Comprehensive patterns for OS, IDE, dependencies, secrets
+2. **.dockerignore**: Optimize Docker builds, exclude development files
+3. **.env.example**: Template for environment variables (no real secrets)
+4. **Language-specific patterns**: Python __pycache__, Node node_modules/, etc.
+5. **AI/ML specific**: Model files, datasets, experiment tracking directories
+
+### Security Validation Checklist
+- [ ] .gitignore created and comprehensive
+- [ ] .env.example created (template only)
+- [ ] .env added to .gitignore
+- [ ] No API keys or passwords in code
+- [ ] Database files ignored
+- [ ] Build artifacts ignored
+- [ ] AI model files ignored (if applicable)
+- [ ] OS and IDE files ignored
+
 ## Integration Requirements
 
 ### MCP Context7 Usage
@@ -76,7 +102,8 @@ This project implements AI-optimized development practices integrated with Test-
 - Include TODO(ai): markers for AI assistance points
 
 ## Next Steps
-1. Create initial plan.md with TDD test roadmap
-2. Set up development environment with testing framework
-3. Implement first Red-Green-Refactor cycle
-4. Document learnings and update this knowledge base
+1. **SECURITY FIRST**: Create .gitignore, .dockerignore, .env.example
+2. Create initial plan.md with TDD test roadmap
+3. Set up development environment with testing framework
+4. Implement first Red-Green-Refactor cycle
+5. Document learnings and update this knowledge base

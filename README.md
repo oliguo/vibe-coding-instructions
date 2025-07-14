@@ -66,7 +66,14 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 ⚙️ Setup: Testing framework and linting rules
 ⚙️ Validate: F-LEN, F-PARAM compliance in IDE
 
-# 3. Start TDD cycle
+# 3. Create security and ignore files (CRITICAL FIRST STEP)
+🔒 Create: .gitignore (prevent sensitive files in git)
+🔒 Create: .dockerignore (optimize docker builds)
+🔒 Create: .env.example (template for environment variables)
+🔒 Setup: IDE-specific ignore patterns
+🔒 Validate: No sensitive data in repository
+
+# 4. Start TDD cycle
 🔴 Command: "go" (Implements first test from plan.md)
 🟢 Follow: Red-Green-Refactor methodology
 📝 Update: @/doc/knowledge.md with learnings
@@ -143,7 +150,290 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 
 ---
 
-## 💻 Development Phase Prompts
+## � Security & Project Setup (CRITICAL FIRST STEP)
+
+### **When Starting Any New Project**
+```bash
+# Security and ignore files setup (BEFORE any code commits)
+🔒 Create: Standard ignore files to prevent data leaks
+📁 Setup: Project structure with security best practices
+🛡️ Validate: No sensitive information in version control
+⚙️ Configure: Environment variable templates
+```
+
+### **Essential Ignore Files to Create**
+
+#### 1. .gitignore (Universal - Always Required)
+```bash
+# AI Development Environment
+.cursor/
+.windsurf/
+.vscode/settings.json
+.vscode/launch.json
+
+# Dependencies
+node_modules/
+venv/
+env/
+.env
+.env.local
+.env.development
+.env.production
+
+# Build outputs
+dist/
+build/
+target/
+out/
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Test coverage
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# API keys and secrets
+config/secrets/
+.env*
+!.env.example
+secrets.json
+credentials.json
+service-account-key.json
+
+# AI model files (often large)
+*.h5
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# Documentation builds
+docs/_build/
+site/
+```
+
+#### 2. .dockerignore (For Docker Projects)
+```bash
+# Version control
+.git
+.gitignore
+
+# Documentation
+README.md
+docs/
+*.md
+
+# Development files
+.env*
+!.env.example
+.vscode/
+.cursor/
+.windsurf/
+
+# Dependencies (install fresh in container)
+node_modules/
+venv/
+env/
+
+# Build artifacts
+dist/
+build/
+target/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+tests/
+**/*.test.*
+coverage/
+
+# CI/CD files
+.github/
+.gitlab-ci.yml
+Jenkinsfile
+```
+
+#### 3. .env.example (Environment Template)
+```bash
+# Database Configuration
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+DATABASE_HOST=localhost
+DATABASE_PORT=5432
+DATABASE_NAME=your_database_name
+
+# API Keys (Use actual keys in .env file, never commit)
+API_KEY=your_api_key_here
+SECRET_KEY=your_secret_key_here
+JWT_SECRET=your_jwt_secret_here
+
+# AI Service Configuration
+OPENAI_API_KEY=your_openai_key_here
+ANTHROPIC_API_KEY=your_anthropic_key_here
+
+# Application Settings
+NODE_ENV=development
+PORT=3000
+DEBUG=true
+
+# External Services
+REDIS_URL=redis://localhost:6379
+ELASTICSEARCH_URL=http://localhost:9200
+
+# Email Configuration
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your_email@example.com
+SMTP_PASS=your_email_password
+```
+
+#### 4. Language-Specific Ignore Patterns
+
+**For Python Projects:**
+```bash
+# Add to .gitignore
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+```
+
+**For Node.js Projects:**
+```bash
+# Add to .gitignore
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.npm
+.eslintcache
+.yarn-integrity
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+```
+
+**For AI/ML Projects:**
+```bash
+# Add to .gitignore
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Data files (often large/sensitive)
+data/
+datasets/
+*.csv
+*.json
+*.parquet
+
+# Model artifacts
+models/
+weights/
+checkpoints/
+*.h5
+*.pkl
+*.joblib
+*.onnx
+
+# Experiment tracking
+mlruns/
+.mlflow/
+wandb/
+```
+
+### **Security Validation Checklist**
+```bash
+# Before first commit, verify:
+✅ .gitignore created and comprehensive
+✅ .env.example created (template only, no real secrets)
+✅ .env added to .gitignore
+✅ No API keys, passwords, or secrets in code
+✅ Database files ignored
+✅ Build artifacts ignored
+✅ OS-specific files ignored
+✅ IDE-specific files ignored
+✅ Large binary files ignored
+✅ AI model files ignored (if applicable)
+```
+
+### **AI Programming Security Commands**
+```bash
+# Security validation prompts for AI assistants
+🔒 "/agent create comprehensive .gitignore for [language/framework]"
+🔒 "/agent validate no sensitive data in repository"
+🔒 "/agent create .env.example template for project dependencies"
+🔒 "/agent setup .dockerignore optimized for [project type]"
+🔒 "/agent audit codebase for hardcoded secrets or credentials"
+```
+
+### **Post-Setup Validation**
+```bash
+# After creating ignore files, run these commands:
+git status                    # Verify sensitive files not tracked
+git check-ignore -v file.env  # Test ignore patterns work
+docker build . --dry-run     # Verify dockerignore effectiveness (if using Docker)
+```
+
+## �💻 Development Phase Prompts
 
 ### **When Starting New Features**
 ```bash
@@ -269,6 +559,12 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 🟢 "/agent write minimal code to pass test, ≤25 LOC, ≤3 params"
 🔧 "/agent refactor following Tidy First principles"
 📝 "/agent update documentation following AI-readable patterns"
+
+# Security-focused AI prompts
+🔒 "/agent create comprehensive .gitignore for [language/framework]"
+🔒 "/agent validate no sensitive data in repository"
+🔒 "/agent audit codebase for hardcoded secrets or credentials"
+🔒 "/agent setup environment variable management securely"
 ```
 
 ---
@@ -277,6 +573,7 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 
 | Phase | Primary Files | Key Commands | Success Criteria |
 |-------|---------------|--------------|------------------|
+| **Security Setup** | .gitignore, .dockerignore, .env.example | Create ignore files | No sensitive data tracked |
 | **Init** | ai-ide-instructions.md, knowledge.md | "Use Context7" | Framework understood |
 | **Plan** | plan.md, todo.md | Select next test | Clear roadmap |
 | **Design** | designer-guidelines.md | Create component specs | Testable designs |

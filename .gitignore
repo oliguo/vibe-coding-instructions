@@ -1,0 +1,137 @@
+# AI Development Environment
+.cursor/
+.windsurf/
+.vscode/settings.json
+.vscode/launch.json
+
+# Dependencies
+node_modules/
+venv/
+env/
+.env
+.env.local
+.env.development
+.env.production
+
+# Build outputs
+dist/
+build/
+target/
+out/
+*.log
+*.tmp
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Test coverage
+coverage/
+.nyc_output/
+.coverage
+htmlcov/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# API keys and secrets
+config/secrets/
+.env*
+!.env.example
+secrets.json
+credentials.json
+service-account-key.json
+
+# AI model files (often large)
+*.h5
+*.pkl
+*.joblib
+models/
+checkpoints/
+
+# Documentation builds
+docs/_build/
+site/
+
+# Python specific
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Node.js specific
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+.npm
+.eslintcache
+.yarn-integrity
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# AI/ML specific
+.ipynb_checkpoints
+*.ipynb
+data/
+datasets/
+*.csv
+*.parquet
+mlruns/
+.mlflow/
+wandb/
+*.onnx
+
+# Project specific
+temp/
+tmp/
+*.bak
+*.backup

@@ -1,0 +1,51 @@
+# Version control
+.git
+.gitignore
+
+# Documentation
+README.md
+docs/
+*.md
+
+# Development files
+.env*
+!.env.example
+.vscode/
+.cursor/
+.windsurf/
+
+# Dependencies (install fresh in container)
+node_modules/
+venv/
+env/
+
+# Build artifacts
+dist/
+build/
+target/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+tests/
+**/*.test.*
+coverage/
+
+# CI/CD files
+.github/
+.gitlab-ci.yml
+Jenkinsfile
+
+# Development tools
+.editorconfig
+.prettierrc
+.eslintrc*
+
+# Temporary files
+*.tmp
+*.bak
+temp/
+tmp/
