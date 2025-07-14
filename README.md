@@ -4,6 +4,19 @@
 **Framework**: Kent Beck TDD + AI-Optimized Development  
 **Compatible**: Cursor, Windsurf, VS Code + AI Extensions
 
+## Credits & Methodology
+
+This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Tidy First** methodologies with AI-optimized development practices.
+
+**TDD Methodology Credit**: [Kent Beck](https://github.com/KentBeck/BPlusTree3/blob/main/rust/docs/CLAUDE.md) - Original TDD principles and Red-Green-Refactor cycle
+
+**Core Principles Applied**:
+- Always follow the TDD cycle: Red → Green → Refactor
+- Write the simplest failing test first
+- Implement minimum code needed to make tests pass
+- Separate structural changes from behavioral changes (Tidy First)
+- Maintain high code quality throughout development
+
 ## Project Structure Overview
 ```
 ├── @/app/                   # Source code (≤300 LOC per file, ≤25 LOC per function)
