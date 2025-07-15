@@ -131,9 +131,138 @@ flowchart TD
     style F fill:#e0f2f1
 ```
 
-### **When Adding New Requirements (PRD.md or Product Documents)**
+## 🔄 Complete Document Integration Workflow
 
-When you add requirements documents (PRD.md, technical specs, etc.) to the [`@/ideas/`](ideas) folder, follow this systematic AI-assisted workflow:
+```mermaid
+graph TD
+    subgraph "Input Documents"
+        A[PRD.md in ideas folder]
+        B[PR.md - Pull Request]
+        C[Technical Specs]
+    end
+    
+    subgraph "Document Processing Pipeline"
+        D[Step 1: Document Analysis]
+        E[Step 2: Knowledge Integration]
+        F[Step 3: Task Generation]
+        G[Step 4: Implementation Planning]
+    end
+    
+    subgraph "Framework Documents"
+        H[ai-ide-instructions.md]
+        I[knowledge.md]
+        J[plan.md - 20 TDD Tests]
+        K[todo.md - Task Tracking]
+        L[step_plan.md - Plans Index]
+    end
+    
+    subgraph "Role Guidelines"
+        M[programmer-guidelines.md]
+        N[designer-guidelines.md]
+        O[tester-guidelines.md]
+    end
+    
+    subgraph "Implementation Outputs"
+        P[Individual TODO Files]
+        Q[Step Plan Files]
+        R[Source Code in app/]
+        S[Test Implementation]
+    end
+    
+    A --> D
+    B --> D
+    C --> D
+    
+    D --> E
+    E --> F
+    F --> G
+    
+    H --> E
+    I --> E
+    J --> F
+    K --> F
+    L --> G
+    
+    M --> G
+    N --> G
+    O --> G
+    
+    G --> P
+    G --> Q
+    P --> R
+    Q --> S
+    
+    style A fill:#e8f5e8
+    style B fill:#ffe0b2
+    style H fill:#fce4ec
+    style I fill:#fff3e0
+    style R fill:#f3e5f5
+```
+
+### **Complete Integration Workflow: From Requirements to Code**
+
+When you add requirements documents (PRD.md, PR.md, technical specs, etc.) to the [`@/ideas/`](ideas) folder, follow this systematic integration workflow that connects all framework documents:
+
+### **Phase 1: Document Analysis & Requirements Processing**
+
+```mermaid
+sequenceDiagram
+    participant User as User
+    participant AI as AI Assistant
+    participant Ideas as ideas/ folder
+    participant AiInst as ai-ide-instructions.md
+    participant Know as knowledge.md
+    participant Context as MCP Context7
+    
+    User->>Ideas: Add PRD.md or PR.md
+    User->>AI: Analyze new requirements
+    AI->>Ideas: Read all requirement documents
+    AI->>AiInst: Apply AI optimization principles
+    AI-->>User: Requirements analysis complete
+    
+    User->>Context: Use Context7
+    Context->>Know: Update knowledge base
+    AI->>Know: Consolidate insights with framework
+    AI-->>User: Knowledge base updated
+    
+    Note over User,Know: Phase 1 Complete: Requirements understood
+```
+
+#### **Step 1: Requirements Analysis with Framework Integration**
+```bash
+# AI Prompt for Comprehensive Requirements Analysis
+/agent analyze new requirements from @/ideas/ folder
+Apply framework principles from @/ai-ide-instructions.md:
+- F-LEN: Break features into ≤25 LOC functions
+- F-PARAM: Design APIs with ≤3 parameters
+- F-RESP: Single responsibility per component
+- M-SIZE: Keep modules ≤300 LOC
+
+Extract and document:
+- UI/UX requirements mapping to @/doc/designer-guidelines.md
+- Technical implementation following @/doc/programmer-guidelines.md
+- Testing strategy aligned with @/doc/tester-guidelines.md
+- Maintainability considerations for long-term AI assistance
+
+Update @/doc/knowledge.md with consolidated analysis
+```
+
+#### **Step 2: Knowledge Base Integration**
+```bash
+# MCP Context7 Integration
+Use Context7
+
+# AI Knowledge Consolidation Prompt
+/agent update @/doc/knowledge.md with comprehensive integration
+Cross-reference with existing framework documents:
+- Validate against established patterns in @/doc/plan.md
+- Check consistency with @/doc/todo.md priorities
+- Align with @/doc/step_plan.md methodology
+- Ensure compatibility with role-specific guidelines
+
+Document integration points and dependencies
+Identify potential conflicts with existing architecture
+```
 
 #### **Phase 1: Requirements Analysis & Knowledge Base Setup**
 
@@ -161,9 +290,163 @@ Consolidate requirements analysis with:
 - Technical feasibility (AI IDE compatibility)
 ```
 
-#### **Phase 2: Project Structure & Security Setup**
+### **Phase 2: Task Generation & Planning Integration**
 
-**Step 3: Security Validation (CRITICAL FIRST)**
+```mermaid
+sequenceDiagram
+    participant Know as knowledge.md
+    participant Plan as plan.md
+    participant Todo as todo.md
+    participant StepPlan as step_plan.md
+    participant AI as AI Assistant
+    participant Guidelines as Role Guidelines
+    
+    Know->>AI: Requirements consolidated
+    AI->>Plan: Map to TDD test roadmap
+    Plan->>Todo: Generate specific tasks
+    Todo->>StepPlan: Create implementation plans
+    
+    AI->>Guidelines: Apply role-specific patterns
+    Guidelines-->>StepPlan: Validate against constraints
+    
+    Note over Know,Guidelines: Phase 2 Complete: Tasks planned
+```
+
+#### **Step 3: TDD Test Mapping & Integration**
+```bash
+# AI Test Integration Prompt
+/agent analyze @/doc/plan.md 20-test roadmap
+Map new requirements from @/ideas/ to existing test framework:
+- Cross-reference with @/doc/programmer-guidelines.md TDD methodology
+- Cross-reference with @/doc/tester-guidelines.md quality standards
+- Cross-reference with @/doc/designer-guidelines.md testable components
+
+For each requirement:
+- Identify which existing tests cover new functionality
+- Create additional tests if needed (following TDD Red-Green-Refactor)
+- Prioritize tests based on:
+  * Core functionality importance
+  * Risk assessment from requirements
+  * Dependencies between features
+  * Integration with existing @/doc/todo.md priorities
+
+Update plan.md with new test scenarios
+Ensure each test follows ≤25 LOC constraint
+Validate test names follow shouldDoSomething pattern
+Cross-reference with all role guidelines for comprehensive coverage
+```
+
+#### **Step 4: Comprehensive Task Decomposition**
+```bash
+# AI Task Generation Prompt (Framework-Integrated)
+/agent create comprehensive task breakdown
+Based on updated @/doc/plan.md and @/doc/knowledge.md
+Integrate with ALL framework documents:
+
+For each requirement, generate tasks using role guidelines:
+
+PROGRAMMER TASKS (apply @/doc/programmer-guidelines.md):
+- TDD implementation tasks (Red-Green-Refactor cycles)
+- Code structure following F-LEN (≤25 LOC), F-PARAM (≤3 params)
+- AI integration points for code generation
+- Security validation tasks
+
+DESIGNER TASKS (apply @/doc/designer-guidelines.md):
+- Component design with ≤3 props (F-PARAM mapping)
+- Atomic design system integration
+- Testable UI specification
+- AI assistance for design token generation
+
+TESTER TASKS (apply @/doc/tester-guidelines.md):
+- Test strategy aligned with TDD cycles
+- Quality gate validation
+- AI-assisted test case generation
+- Performance and accessibility validation
+
+Each task file: YYYYMMDD_HHMMSS_todo_taskname.md must include:
+- Single responsibility description
+- Acceptance criteria (≤10 items, measurable)
+- Dependencies linking to framework documents
+- AI integration points (TODO(ai) markers)
+- Role assignment and cross-role dependencies
+
+Update @/doc/todo.md with complete integrated task index
+```
+
+### **Phase 3: Implementation Planning & Role Integration**
+
+```mermaid
+flowchart TD
+    A[Tasks from todo.md] --> B[Role Assignment Matrix]
+    
+    B --> C[Programmer Tasks]
+    B --> D[Designer Tasks]
+    B --> E[Tester Tasks]
+    
+    C --> C1[programmer-guidelines.md]
+    D --> D1[designer-guidelines.md]
+    E --> E1[tester-guidelines.md]
+    
+    C1 --> F[Cross-Role Integration]
+    D1 --> F
+    E1 --> F
+    
+    F --> G[Unified Step Plans]
+    G --> H[YYYYMMDD_HHMMSS_steps_plan_*.md]
+    H --> I[step_plan.md Index Update]
+    
+    I --> J[TDD Implementation Ready]
+    J --> K[go command execution]
+    
+    style A fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e8
+    style E fill:#e3f2fd
+    style F fill:#ffecb3
+    style K fill:#e0f2f1
+```
+
+#### **Step 5: Integrated Step Planning**
+```bash
+# AI Step Plan Generation (Cross-Role Integration)
+/agent create detailed step plans with framework integration
+Following ALL role-specific guidelines with cross-dependencies:
+
+For each task, create unified step plan that integrates:
+
+TECHNICAL IMPLEMENTATION (programmer-guidelines.md):
+- TDD Red-Green-Refactor methodology
+- Function constraints: ≤25 LOC, ≤3 parameters
+- Atomic commits (structural vs behavioral)
+- AI assistance points for code generation
+- Security validation checkpoints
+
+UI/UX IMPLEMENTATION (designer-guidelines.md):
+- Atomic design principles
+- Component specs with ≤3 props (F-PARAM mapping)
+- Design-to-code AI generation points
+- Testability considerations for development
+
+QUALITY ASSURANCE (tester-guidelines.md):
+- Test integration with TDD cycles
+- Quality gates and automation
+- AI-assisted test generation
+- Cross-browser and accessibility validation
+
+CROSS-ROLE DEPENDENCIES:
+- Designer → Programmer: Component specs for implementation
+- Programmer → Tester: Code structure for test design
+- Tester → Designer: Accessibility feedback for design
+- All roles → knowledge.md: Consolidated learnings
+
+Each step plan file: YYYYMMDD_HHMMSS_steps_plan_taskname.md
+Include comprehensive resource requirements and validation criteria
+Update @/doc/step_plan.md with integrated index
+```
+
+#### **Phase 4: Security Validation & Project Setup**
+
+**Step 6: Security Validation (CRITICAL FIRST)**
 ```bash
 # AI Security Audit Prompt
 /agent validate project security setup
@@ -173,17 +456,199 @@ Create language-specific ignore patterns if needed
 Validate no API keys, passwords, or secrets in code
 ```
 
-**Step 4: Map Requirements to TDD Tests**
-```bash
-# AI Test Planning Prompt
-/agent analyze @/doc/plan.md 20-test roadmap
-Map requirements from @/ideas/ to specific tests
-Prioritize tests based on:
-- Core functionality importance
-- Risk assessment
-- Dependencies between features
-Update plan.md with requirement-specific test scenarios
+### **Phase 5: TDD Implementation & Continuous Integration**
+
+```mermaid
+graph TD
+    A[All Phases Complete] --> B[go Command]
+    B --> C[First TDD Cycle]
+    
+    subgraph "TDD Implementation"
+        C --> D[Red Phase: Write Failing Test]
+        D --> E[Green Phase: Minimal Implementation]
+        E --> F[Refactor Phase: Tidy First]
+        F --> G[Documentation Update]
+        G --> H[Next Test Selection]
+        H --> D
+    end
+    
+    subgraph "PR Integration"
+        I[PR.md Created] --> J[Link to Implementation]
+        J --> K[Testing & Verification]
+        K --> L[Documentation Updates]
+        L --> M[Ready for Review]
+    end
+    
+    G --> I
+    M --> N[Deployment Ready]
+    
+    style A fill:#e0f2f1
+    style B fill:#ffcdd2
+    style N fill:#c8e6c9
 ```
+
+#### **Step 7: TDD Implementation Launch**
+```bash
+# Command to start implementation
+go
+
+# This triggers the first test from plan.md following complete integration:
+/agent implement failing test for [first behavior from updated plan.md]
+Apply framework integration:
+- Use knowledge.md context for implementation approach
+- Follow programmer-guidelines.md for TDD Red phase
+- Consider designer-guidelines.md for UI-related tests
+- Integrate tester-guidelines.md quality standards
+
+Test implementation must:
+- Follow ≤25 LOC constraint (ai-ide-instructions.md)
+- Use descriptive shouldDoSomething naming pattern
+- Include single behavior validation
+- Reference framework documentation in test comments
+```
+
+#### **Step 8: Pull Request Integration (PR.md)**
+When creating PR.md documents, integrate with framework:
+
+```bash
+# AI PR Integration Prompt
+/agent create PR.md following framework standards
+Based on completed implementation and framework documents:
+
+## Background (Why) - Reference Framework Docs
+- Link to original requirements in @/ideas/
+- Reference decisions documented in @/doc/knowledge.md
+- Cross-reference with @/doc/plan.md test implementations
+
+## Implementation Approach (How) - Framework Compliance
+- Validate against @/ai-ide-instructions.md constraints:
+  * Functions ≤25 LOC (F-LEN compliance)
+  * Parameters ≤3 (F-PARAM compliance)
+  * Single responsibility (F-RESP compliance)
+- Reference @/doc/programmer-guidelines.md TDD methodology
+- Include @/doc/designer-guidelines.md design decisions (if UI)
+- Document @/doc/tester-guidelines.md quality validations
+
+## Actual Changes (What was done) - Cross-Reference Tasks
+- Link to completed tasks in @/doc/todo.md
+- Reference step plans in @/doc/step_plan.md
+- Update @/doc/knowledge.md with implementation insights
+
+## Testing & Verification - Framework Integration
+- Validate all tests from @/doc/plan.md pass
+- Confirm @/doc/tester-guidelines.md standards met
+- Include AI assistance effectiveness metrics
+- Document any framework constraint violations and resolutions
+
+## Framework Compliance Checklist:
+- [ ] All functions ≤25 LOC (F-LEN)
+- [ ] All functions ≤3 parameters (F-PARAM)
+- [ ] TDD Red-Green-Refactor cycle followed
+- [ ] Documentation updated in knowledge.md
+- [ ] Tasks marked complete in todo.md
+- [ ] Cross-role guidelines followed
+- [ ] AI optimization maintained
+```
+
+### **Continuous Framework Integration**
+
+```mermaid
+sequenceDiagram
+    participant Dev as Developer
+    participant Framework as Framework Docs
+    participant AI as AI Assistant
+    participant Quality as Quality Gates
+    
+    loop Every Commit
+        Dev->>Framework: Check compliance
+        Framework->>AI: Apply constraints
+        AI->>Dev: Validate implementation
+        Dev->>Quality: Run quality gates
+        Quality-->>Dev: Pass/Fail feedback
+    end
+    
+    loop Weekly Review
+        Dev->>Framework: Update learnings
+        Framework->>AI: Refresh context
+        AI->>Framework: Suggest improvements
+    end
+    
+    Note over Dev,Quality: Continuous Integration with Framework
+```
+
+### **Complete Integration Checklist**
+
+Before considering any feature complete, validate integration across ALL framework documents:
+
+#### **Document Integration Validation**
+```bash
+# AI Integration Validation Prompt
+/agent validate complete framework integration
+Check all document cross-references and consistency:
+
+REQUIREMENTS INTEGRATION:
+- [ ] @/ideas/ documents fully processed
+- [ ] @/doc/knowledge.md updated with all insights
+- [ ] Requirements mapped to @/doc/plan.md tests
+
+ROLE INTEGRATION:
+- [ ] @/doc/programmer-guidelines.md patterns followed
+- [ ] @/doc/designer-guidelines.md principles applied
+- [ ] @/doc/tester-guidelines.md standards met
+
+TASK INTEGRATION:
+- [ ] All tasks created in @/doc/todo.md
+- [ ] Step plans generated in @/doc/step_plan.md
+- [ ] Cross-dependencies documented
+
+AI OPTIMIZATION INTEGRATION:
+- [ ] @/ai-ide-instructions.md rules enforced
+- [ ] Function constraints validated (≤25 LOC, ≤3 params)
+- [ ] AI readability patterns maintained
+
+TDD INTEGRATION:
+- [ ] Red-Green-Refactor cycles completed
+- [ ] All tests in @/doc/plan.md implemented
+- [ ] Quality gates passing
+
+DOCUMENTATION INTEGRATION:
+- [ ] Knowledge base current and comprehensive
+- [ ] All TODO(ai) markers addressed
+- [ ] Framework compliance documented
+```
+
+### **Sample Complete Integration: PRD → Running Code → PR**
+
+```bash
+# Complete End-to-End Example
+# 1. Add PRD.md to ideas/
+echo "New user authentication feature" > ideas/PRD_user_auth.md
+
+# 2. Run complete integration workflow
+/agent analyze requirements from @/ideas/PRD_user_auth.md
+Apply @/ai-ide-instructions.md principles
+Cross-reference ALL @/doc/ guidelines
+Update @/doc/knowledge.md with integrated analysis
+
+# 3. Generate integrated tasks and plans
+/agent create tasks following framework integration
+Reference @/doc/programmer-guidelines.md for TDD tasks
+Reference @/doc/designer-guidelines.md for UI tasks
+Reference @/doc/tester-guidelines.md for QA tasks
+Update @/doc/todo.md and @/doc/step_plan.md
+
+# 4. Start TDD implementation
+go
+/agent implement first failing test
+Follow complete framework integration
+
+# 5. Create PR with framework compliance
+/agent create PR.md with framework documentation
+Include compliance checklist and cross-references
+Document framework integration points
+```
+
+This integration ensures that when AI assistants receive new PRD.md or PR.md documents, they follow a systematic approach that leverages ALL framework documents, maintains strong connections between them, and produces consistently high-quality, maintainable code that follows TDD principles and AI optimization constraints.
 
 #### **Phase 3: Development Cycle Kickoff**
 
