@@ -42,9 +42,9 @@ graph LR
 
 ```mermaid
 graph TD
-    A[Vibe Coding Instructions Framework] --> B[Source Code: @/app/]
-    A --> C[Requirements: @/ideas/]
-    A --> D[Documentation: @/doc/]
+    A[Vibe Coding Instructions Framework] --> B[Source Code]
+    A --> C[Requirements]
+    A --> D[Documentation]
     A --> E[AI Optimization: ai-ide-instructions.md]
     
     B --> B1[≤300 LOC per file]
@@ -102,7 +102,7 @@ graph TD
 
 ```mermaid
 flowchart TD
-    A[Add PRD.md to @/ideas/] --> B[Phase 1: Requirements Analysis]
+    A[Add PRD.md to ideas folder] --> B[Phase 1: Requirements Analysis]
     B --> C[Phase 2: Security & Structure Setup]
     C --> D[Phase 3: Development Cycle Kickoff]
     D --> E[Phase 4: Task Management]
@@ -1144,7 +1144,7 @@ Plan refactoring priorities using Tidy First principles
 ```mermaid
 graph TB
     subgraph "Input Layer"
-        A[PRD.md in @/ideas/]
+        A[PRD.md in ideas folder]
         B[Technical Specs]
         C[Product Requirements]
     end
@@ -1170,9 +1170,9 @@ graph TB
     end
     
     subgraph "Implementation Layer"
-        O[@/app/ Source Code]
-        P[Individual Tasks: todos/]
-        Q[Step Plans: step_plans/]
+        O[App Source Code]
+        P[Individual Tasks]
+        Q[Step Plans]
     end
     
     subgraph "Quality Gates"
