@@ -11,6 +11,27 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 **TDD Methodology Credit**: [Kent Beck](https://github.com/KentBeck/BPlusTree3/blob/main/rust/docs/CLAUDE.md) - Original TDD principles and Red-Green-Refactor cycle
 
 **Core Principles Applied**:
+
+```mermaid
+graph LR
+    A[TDD Cycle] --> B[Red: Failing Test]
+    B --> C[Green: Minimal Code]
+    C --> D[Refactor: Tidy First]
+    D --> B
+    
+    E[AI Optimization] --> F[≤25 LOC Functions]
+    E --> G[≤3 Parameters]
+    E --> H[Single Responsibility]
+    
+    I[Quality Gates] --> J[All Tests Pass]
+    I --> K[No Compiler Warnings]
+    I --> L[AI Readability]
+    
+    style A fill:#ffcdd2
+    style E fill:#c8e6c9
+    style I fill:#bbdefb
+```
+
 - Always follow the TDD cycle: Red → Green → Refactor
 - Write the simplest failing test first
 - Implement minimum code needed to make tests pass
@@ -18,6 +39,47 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 - Maintain high code quality throughout development
 
 ## Project Structure Overview
+
+```mermaid
+graph TD
+    A[Vibe Coding Instructions Framework] --> B[Source Code: @/app/]
+    A --> C[Requirements: @/ideas/]
+    A --> D[Documentation: @/doc/]
+    A --> E[AI Optimization: ai-ide-instructions.md]
+    
+    B --> B1[≤300 LOC per file]
+    B --> B2[≤25 LOC per function]
+    B --> B3[≤3 parameters per function]
+    
+    C --> C1[PRD.md]
+    C --> C2[Technical Specs]
+    C --> C3[Product Requirements]
+    
+    D --> D1[knowledge.md - Central Knowledge Base]
+    D --> D2[plan.md - TDD Test Roadmap]
+    D --> D3[todo.md - Master Task Tracking]
+    D --> D4[step_plan.md - Implementation Plans]
+    D --> D5[Role Guidelines]
+    D --> D6[Individual Tasks: todos/]
+    D --> D7[Detailed Plans: step_plans/]
+    
+    D5 --> D5A[programmer-guidelines.md]
+    D5 --> D5B[designer-guidelines.md]
+    D5 --> D5C[tester-guidelines.md]
+    
+    E --> E1[F-LEN: ≤25 LOC]
+    E --> E2[F-PARAM: ≤3 params]
+    E --> E3[F-RESP: Single responsibility]
+    E --> E4[M-SIZE: ≤300 LOC files]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+```
+
+### Directory Structure
 ```
 ├── @/app/                   # Source code (≤300 LOC per file, ≤25 LOC per function)
 ├── @/ideas/                 # Requirements and project concepts
@@ -37,6 +99,37 @@ This framework integrates **Kent Beck's Test-Driven Development (TDD)** and **Ti
 ---
 
 ## 🚀 New Requirements & AI Startup Workflow
+
+```mermaid
+flowchart TD
+    A[Add PRD.md to @/ideas/] --> B[Phase 1: Requirements Analysis]
+    B --> C[Phase 2: Security & Structure Setup]
+    C --> D[Phase 3: Development Cycle Kickoff]
+    D --> E[Phase 4: Task Management]
+    
+    B --> B1[Step 1: Analyze Requirements<br/>AI Prompt: Extract tech requirements]
+    B --> B2[Step 2: Update Knowledge Base<br/>Use Context7 + consolidate insights]
+    
+    C --> C1[Step 3: Security Validation<br/>Validate .gitignore, .dockerignore]
+    C --> C2[Step 4: Map to TDD Tests<br/>Link requirements to plan.md]
+    
+    D --> D1[Step 5: Start TDD Cycle<br/>go command + Red phase]
+    D --> D2[Step 6: Green Implementation<br/>≤25 LOC, ≤3 params]
+    D --> D3[Step 7: Refactor<br/>Tidy First principles]
+    
+    E --> E1[Step 8: Create Task Files<br/>YYYYMMDD_HHMMSS format]
+    E --> E2[Step 9: Generate Step Plans<br/>Atomic implementation steps]
+    
+    E --> F[Continue TDD Cycles]
+    F --> D1
+    
+    style A fill:#e8f5e8
+    style B fill:#e3f2fd
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#fce4ec
+    style F fill:#e0f2f1
+```
 
 ### **When Adding New Requirements (PRD.md or Product Documents)**
 
@@ -217,6 +310,58 @@ Prepare tomorrow's priorities
 
 ## 🚀 Project Initialization (New Team Members)
 
+```mermaid
+graph TD
+    A[New Team Member] --> B{What's Your Role?}
+    
+    B --> C[Project Leader/CTO]
+    B --> D[Developer]
+    B --> E[Designer]
+    B --> F[Tester/QA]
+    
+    C --> C1[Read Framework Docs]
+    C --> C2[Use Context7]
+    C --> C3[Assign Team Roles]
+    
+    D --> D1[Read AI Optimization Rules]
+    D --> D2[Setup IDE + AI Extensions]
+    D --> D3[SECURITY FIRST: Create Ignore Files]
+    D --> D4[Start TDD Cycle: go command]
+    
+    E --> E1[Read Design Guidelines]
+    E --> E2[Setup Design System]
+    E --> E3[Create Component Specs]
+    
+    F --> F1[Read Testing Strategy]
+    F --> F2[Setup Test Environment]
+    F --> F3[Join TDD Cycle]
+    
+    C1 --> C1A[ai-ide-instructions.md]
+    C1 --> C1B[doc/knowledge.md]
+    C1 --> C1C[doc/plan.md]
+    
+    D1 --> D1A[≤25 LOC functions]
+    D1 --> D1B[≤3 parameters]
+    D1 --> D1C[Single responsibility]
+    
+    D3 --> D3A[.gitignore]
+    D3 --> D3B[.dockerignore]
+    D3 --> D3C[.env.example]
+    
+    E2 --> E2A[Design tokens → code constants]
+    E2 --> E2B[≤3 props per component]
+    E2 --> E2C[Testable interactions]
+    
+    F2 --> F2A[Test frameworks]
+    F2 --> F2B[Coverage reporting]
+    F2 --> F2C[CI integration]
+    
+    style C fill:#e1f5fe
+    style D fill:#f3e5f5
+    style E fill:#e8f5e8
+    style F fill:#fff3e0
+```
+
 ### **For Project Leaders/CTOs**
 ```bash
 # 1. Read core framework
@@ -297,6 +442,48 @@ Prepare tomorrow's priorities
 ---
 
 ## 🔄 Project Continuation (Daily/Weekly Work)
+
+```mermaid
+sequenceDiagram
+    participant D as Developer
+    participant T as Tester
+    participant Des as Designer
+    participant AI as AI Assistant
+    participant K as Knowledge Base
+    
+    Note over D,K: Daily Workflow (≤5 minutes setup)
+    
+    D->>K: Check todo.md priorities
+    D->>K: Review knowledge.md updates
+    D->>AI: Select next test from plan.md
+    
+    Note over D,AI: TDD Red-Green-Refactor Cycle
+    
+    D->>AI: /agent implement failing test
+    AI-->>D: Test code ≤25 LOC
+    D->>AI: /agent write minimal implementation
+    AI-->>D: Code ≤25 LOC, ≤3 params
+    
+    T->>AI: /agent validate test quality
+    AI-->>T: Coverage + quality metrics
+    
+    Des->>AI: /agent design component specs
+    AI-->>Des: ≤3 props, testable states
+    
+    D->>AI: /agent refactor following Tidy First
+    AI-->>D: Structural vs behavioral separation
+    
+    Note over D,K: End of Day
+    D->>K: Update progress in todo.md
+    D->>K: Document insights in knowledge.md
+    
+    Note over D,K: Weekly Review
+    rect rgb(240, 248, 255)
+        D->>AI: /agent weekly progress review
+        AI-->>D: Compliance metrics + suggestions
+        D->>K: Update team learnings
+    end
+```
 
 ### **Daily Standup Prompt**
 ```bash
@@ -612,7 +799,102 @@ git check-ignore -v file.env  # Test ignore patterns work
 docker build . --dry-run     # Verify dockerignore effectiveness (if using Docker)
 ```
 
-## �💻 Development Phase Prompts
+## 💻 Development Phase Prompts
+
+```mermaid
+stateDiagram-v2
+    [*] --> Planning: New Feature Request
+    
+    Planning --> Red: Feature Planned
+    Planning --> Planning: Refine Requirements
+    
+    state Red {
+        [*] --> WriteTest: Start TDD Cycle
+        WriteTest --> ValidateTest: Test Written ≤25 LOC
+        ValidateTest --> TestFails: Run Test
+        TestFails --> [*]: Red Phase Complete
+    }
+    
+    Red --> Green: Test Failing
+    
+    state Green {
+        [*] --> WriteCode: Implement Minimal Code
+        WriteCode --> ValidateCode: Code ≤25 LOC, ≤3 params
+        ValidateCode --> TestPasses: Run All Tests
+        TestPasses --> [*]: Green Phase Complete
+    }
+    
+    Green --> Refactor: Tests Passing
+    
+    state Refactor {
+        [*] --> StructuralChanges: Tidy First Approach
+        StructuralChanges --> BehavioralChanges: Separate Commits
+        BehavioralChanges --> ValidateRefactor: Maintain Test Coverage
+        ValidateRefactor --> [*]: Refactor Complete
+    }
+    
+    Refactor --> Documentation: Code Clean
+    
+    state Documentation {
+        [*] --> UpdateKnowledge: Document Insights
+        UpdateKnowledge --> UpdateTodos: Track Progress
+        UpdateTodos --> [*]: Documentation Complete
+    }
+    
+    Documentation --> Planning: Next Feature
+    Documentation --> [*]: Feature Complete
+    
+    state AI_Assistant {
+        RedPhase: /agent implement failing test
+        GreenPhase: /agent write minimal code
+        RefactorPhase: /agent refactor following Tidy First
+        ValidatePhase: /agent validate compliance
+    }
+    
+    Red --> AI_Assistant
+    Green --> AI_Assistant
+    Refactor --> AI_Assistant
+```
+
+### **AI-Optimized TDD Cycle**
+
+```mermaid
+flowchart TD
+    A[🔴 RED PHASE] --> A1[Write Failing Test]
+    A1 --> A2[≤25 LOC per test]
+    A2 --> A3[Single behavior validation]
+    A3 --> A4[Descriptive test name]
+    A4 --> A5[Run test - must fail]
+    
+    A5 --> B[🟢 GREEN PHASE]
+    B --> B1[Write minimal code]
+    B1 --> B2[≤25 LOC functions]
+    B2 --> B3[≤3 parameters]
+    B3 --> B4[Single responsibility]
+    B4 --> B5[Run tests - all pass]
+    
+    B5 --> C[🔧 REFACTOR PHASE]
+    C --> C1[Structural changes first]
+    C1 --> C2[Extract helpers]
+    C2 --> C3[Rename for clarity]
+    C3 --> C4[Reorganize imports]
+    C4 --> C5[Behavioral changes second]
+    C5 --> C6[Separate commits]
+    
+    C6 --> D[📝 DOCUMENT]
+    D --> D1[Update knowledge.md]
+    D1 --> D2[Update todo progress]
+    D2 --> D3[Add AI markers]
+    
+    D3 --> E{Next Test?}
+    E -->|Yes| A
+    E -->|No| F[Feature Complete]
+    
+    style A fill:#ffcdd2
+    style B fill:#c8e6c9
+    style C fill:#bbdefb
+    style D fill:#fff3e0
+```
 
 ### **When Starting New Features**
 ```bash
@@ -857,6 +1139,93 @@ Plan refactoring priorities using Tidy First principles
 
 ## 📚 Quick Reference Guide
 
+### **Framework Knowledge Flow**
+
+```mermaid
+graph TB
+    subgraph "Input Layer"
+        A[PRD.md in @/ideas/]
+        B[Technical Specs]
+        C[Product Requirements]
+    end
+    
+    subgraph "AI Processing Layer"
+        D[MCP Context7]
+        E[AI Analysis Engine]
+        F[Requirement Processor]
+    end
+    
+    subgraph "Knowledge Base Layer"
+        G[knowledge.md]
+        H[plan.md - 20 TDD Tests]
+        I[todo.md - Task Tracking]
+        J[step_plan.md - Implementation Plans]
+    end
+    
+    subgraph "Guidelines Layer"
+        K[ai-ide-instructions.md]
+        L[programmer-guidelines.md]
+        M[designer-guidelines.md]
+        N[tester-guidelines.md]
+    end
+    
+    subgraph "Implementation Layer"
+        O[@/app/ Source Code]
+        P[Individual Tasks: todos/]
+        Q[Step Plans: step_plans/]
+    end
+    
+    subgraph "Quality Gates"
+        R[≤25 LOC Functions]
+        S[≤3 Parameters]
+        T[TDD Compliance]
+        U[AI Readability]
+    end
+    
+    A --> D
+    B --> D
+    C --> D
+    
+    D --> E
+    E --> F
+    F --> G
+    
+    G --> H
+    G --> I
+    G --> J
+    
+    K --> L
+    K --> M
+    K --> N
+    
+    H --> O
+    I --> P
+    J --> Q
+    
+    L --> O
+    M --> O
+    N --> O
+    
+    O --> R
+    O --> S
+    O --> T
+    O --> U
+    
+    R --> V[Production Ready Code]
+    S --> V
+    T --> V
+    U --> V
+    
+    style A fill:#e8f5e8
+    style D fill:#e3f2fd
+    style G fill:#fff3e0
+    style K fill:#fce4ec
+    style O fill:#f3e5f5
+    style V fill:#e0f2f1
+```
+
+### **Phase Reference Table**
+
 | Phase | Primary Files | Key Commands | Success Criteria |
 |-------|---------------|--------------|------------------|
 | **Security Setup** | .gitignore, .dockerignore, .env.example | Create ignore files | No sensitive data tracked |
@@ -866,6 +1235,27 @@ Plan refactoring priorities using Tidy First principles
 | **Develop** | programmer-guidelines.md | "go" command | TDD cycle complete |
 | **Test** | tester-guidelines.md | Run test suite | All quality gates pass |
 | **Deploy** | All docs updated | Validate compliance | Production ready |
+
+### **AI Optimization Quick Check**
+
+```mermaid
+pie title AI Compliance Metrics
+    "Functions ≤25 LOC" : 25
+    "Parameters ≤3" : 20
+    "Single Responsibility" : 20
+    "Files ≤300 LOC" : 15
+    "Cyclomatic Complexity ≤10" : 10
+    "AI Readability Patterns" : 10
+```
+
+### **Emergency Commands**
+| Issue | Command | Expected Outcome |
+|-------|---------|------------------|
+| **Tests Failing** | `/agent debug failing test following @/doc/programmer-guidelines.md` | Root cause identified, minimal fix applied |
+| **Poor AI Suggestions** | `/agent improve AI context for better suggestions` | Enhanced TODO(ai) markers, clearer requirements |
+| **Code Too Complex** | `/agent simplify complex code following framework rules` | Functions split to ≤25 LOC, reduced complexity |
+| **Security Concerns** | `/agent audit codebase for hardcoded secrets or credentials` | No sensitive data in repository |
+| **Performance Issues** | `/agent weekly progress review` | Compliance metrics, improvement suggestions |
 
 ---
 
