@@ -981,7 +981,7 @@ sequenceDiagram
 
 ---
 
-## � Security & Project Setup (CRITICAL FIRST STEP)
+## 🎶 Security & Project Setup (CRITICAL FIRST STEP)
 
 ### **When Starting Any New Project**
 ```bash
